@@ -43,6 +43,7 @@ export default defineConfig({
     nav: [
       { text: 'Главное', link: '/' },
       // { text: 'О сервере', link: '/about' },
+      { text: 'Пожертвования', link: '/donations' },
       { text: 'Правила', link: '/rules' },
       { text: 'Вики', link: '/wiki' },
 
@@ -92,7 +93,6 @@ export default defineConfig({
             { text: 'Настольные игры', link: '/wiki/boardgames' },
             { text: 'Команды', link: '/wiki/cmd' },
             { text: 'Мелкие плагины', link: '/wiki/plugins' },
-            { text: 'Пожертвования', link: '/wiki/donations' },
           ],
         },
       ],
