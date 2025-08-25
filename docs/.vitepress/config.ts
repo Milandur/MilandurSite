@@ -81,7 +81,7 @@ export default defineConfig({
           items: [
             { text: 'Начало', link: '/wiki/' },
             { text: 'Как играть?', link: '/wiki/play' },
-            { text: 'Модификации/Лаунчер', link: '/wiki/Modifications-Launcher' },
+            { text: 'Модификации/Лаунчер', link: '/wiki/mods-launcher' },
           ],
         },
         {
