@@ -4,6 +4,7 @@ import { defineConfig } from 'vitepress';
 export default defineConfig({
   lang: 'ru-RU',
   cleanUrls: true,
+  appearance: "force-dark",
   title: 'Milandur',
   description: 'Milandur - Minecraft Сервер',
   head: [['link', { rel: 'icon', href: '/logo-64.png' }]],
@@ -73,6 +74,21 @@ export default defineConfig({
         {
           text: 'О сервере',
           items: [{ text: 'О Milandur', link: '/about/' }],
+        },
+      ],
+      '/rules/': [
+        {
+          text: 'Правила',
+          items: [
+            { text: 'О правилах', link: '/rules/' },
+            { text: 'Основные принципы', link: '/rules/general-principles/' },
+            { text: 'Правила поведения', link: '/rules/behavior/' },
+            { text: 'Игровые правила', link: '/rules/gameplay/' },
+            { text: 'Нарушения и наказания', link: '/rules/punishments/' },
+            { text: 'Для персонала', link: '/rules/staff/' },
+            { text: 'Восстановление и апелляции', link: '/rules/appeals/' },
+            { text: 'Судебная система', link: '/rules/court/' }
+          ],
         },
       ],
       '/wiki/': [
