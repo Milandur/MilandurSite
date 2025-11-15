@@ -108,6 +108,7 @@ export default defineConfig({
             { text: 'Банк', link: '/wiki/bank' },
             { text: 'Лупа', link: '/wiki/lupa' },
             { text: 'Мяч', link: '/wiki/ball' },
+            { text: 'Сито', link: '/wiki/sito' },
             { text: 'Настольные игры', link: '/wiki/boardgames' },
             { text: 'Команды', link: '/wiki/cmd' },
             { text: 'Мелкие плагины', link: '/wiki/plugins' },
@@ -117,3 +118,4 @@ export default defineConfig({
     },
   },
 });
+
