@@ -105,7 +105,7 @@ export default defineConfig({
           collapsed: true,
           items: [
             { text: 'Чат', link: '/wiki/chat' },
-            { text: 'Банк', link: '/wiki/bank' },
+            // { text: 'Банк', link: '/wiki/bank' },
             { text: 'Лупа', link: '/wiki/lupa' },
             { text: 'Мяч', link: '/wiki/ball' },
             { text: 'Сито', link: '/wiki/sito' },
@@ -118,4 +118,5 @@ export default defineConfig({
     },
   },
 });
+
 
