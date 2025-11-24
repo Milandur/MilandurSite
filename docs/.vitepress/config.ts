@@ -81,8 +81,8 @@ export default defineConfig({
           text: 'Правила',
           items: [
             { text: 'О правилах', link: '/rules/' },
-            { text: 'Основные принципы', link: '/wiki/general-principles' },
-            { text: 'Правила поведения', link: '/wiki/behavior' },
+            { text: 'Основные принципы', link: '/rules/general-principles' },
+            { text: 'Правила поведения', link: '/rules/behavior' },
           ],
         },
       ],
@@ -113,6 +113,7 @@ export default defineConfig({
     },
   },
 });
+
 
 
 
