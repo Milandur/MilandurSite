@@ -87,7 +87,7 @@ export default defineConfig({
             { text: 'Нарушения и наказания', link: '/rules/punishments/' },
             { text: 'Для персонала', link: '/rules/staff/' },
             { text: 'Восстановление и апелляции', link: '/rules/appeals/' },
-            { text: 'Судебная система', link: '/rules/court/' }
+            { text: 'Судебная система', link: '/rules/court/' },
           ],
         },
       ],
@@ -118,5 +118,6 @@ export default defineConfig({
     },
   },
 });
+
 
 
