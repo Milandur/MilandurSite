@@ -16,7 +16,7 @@ hero:
       link: /wiki
     - theme: alt
       text: Discord
-      link: https://discord.gg/B3aXZ77QPe
+      link: https://discord.gg/MaBUyCyQgP
 features:
   - icon: 📝
     title: Сосредоточьтесь на своем контенте

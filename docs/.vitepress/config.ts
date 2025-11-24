@@ -44,7 +44,7 @@ export default defineConfig({
     nav: [
       { text: 'Главное', link: '/' },
       // { text: 'О сервере', link: '/about' },
-      { text: 'Пожертвования', link: '/donations' },
+      { text: 'Магазин', link: 'https://store.milandur.ru' },
       { text: 'Правила', link: '/rules' },
       { text: 'Вики', link: '/wiki' },
 
@@ -59,7 +59,7 @@ export default defineConfig({
 
       // ...
     ],
-    socialLinks: [{ icon: 'discord', link: 'https://discord.gg/B3aXZ77QPe' }],
+    socialLinks: [{ icon: 'discord', link: 'https://discord.gg/MaBUyCyQgP' }],
 
     outline: {
             label: "На этой странице",
@@ -83,6 +83,11 @@ export default defineConfig({
             { text: 'О правилах', link: '/rules/' },
             { text: 'Основные принципы', link: '/wiki/general-principles' },
             { text: 'Правила поведения', link: '/wiki/behavior' },
+            { text: 'Игровые правила', link: '/rules/gameplay/' },
+            { text: 'Нарушения и наказания', link: '/rules/punishments/' },
+            { text: 'Для персонала', link: '/rules/staff/' },
+            { text: 'Восстановление и апелляции', link: '/rules/appeals/' },
+            { text: 'Судебная система', link: '/rules/court/' },
           ],
         },
       ],
