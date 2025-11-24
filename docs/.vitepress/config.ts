@@ -7,7 +7,7 @@ export default defineConfig({
   appearance: "force-dark",
   title: 'Milandur',
   description: 'Milandur - Minecraft Сервер',
-  head: [['link', { rel: 'icon', href: '/logo-64.png' }]],
+  head: [['link', { rel: 'icon', href: '/logo.png' }]],
 
   themeConfig: {
     search: {
@@ -81,13 +81,8 @@ export default defineConfig({
           text: 'Правила',
           items: [
             { text: 'О правилах', link: '/rules/' },
-            { text: 'Основные принципы', link: '/rules/general-principles/' },
-            { text: 'Правила поведения', link: '/rules/behavior/' },
-            { text: 'Игровые правила', link: '/rules/gameplay/' },
-            { text: 'Нарушения и наказания', link: '/rules/punishments/' },
-            { text: 'Для персонала', link: '/rules/staff/' },
-            { text: 'Восстановление и апелляции', link: '/rules/appeals/' },
-            { text: 'Судебная система', link: '/rules/court/' },
+            { text: 'Основные принципы', link: '/wiki/general-principles' },
+            { text: 'Правила поведения', link: '/wiki/behavior' },
           ],
         },
       ],
