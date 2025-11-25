@@ -81,6 +81,7 @@ export default defineConfig({
           text: 'Правила',
           items: [
             { text: 'О правилах', link: '/rules/' },
+<<<<<<< HEAD
             { text: 'Основные принципы', link: '/wiki/general-principles' },
             { text: 'Правила поведения', link: '/wiki/behavior' },
             { text: 'Игровые правила', link: '/rules/gameplay/' },
@@ -88,6 +89,10 @@ export default defineConfig({
             { text: 'Для персонала', link: '/rules/staff/' },
             { text: 'Восстановление и апелляции', link: '/rules/appeals/' },
             { text: 'Судебная система', link: '/rules/court/' },
+=======
+            { text: 'Основные принципы', link: '/rules/general-principles' },
+            { text: 'Правила поведения', link: '/rules/behavior' },
+>>>>>>> 72fd8542677aff1fc9de3d5c9f840ad4c0930a83
           ],
         },
       ],
@@ -118,6 +123,7 @@ export default defineConfig({
     },
   },
 });
+
 
 
 
