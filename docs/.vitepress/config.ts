@@ -104,6 +104,7 @@ export default defineConfig({
           text: 'Механики и команды',
           collapsed: true,
           items: [
+            { text: '❄️ Новогоднее обновление', link: '/wiki/new_year' },
             { text: 'Чат', link: '/wiki/chat' },
             // { text: 'Банк', link: '/wiki/bank' },
             { text: 'Лупа', link: '/wiki/lupa' },
@@ -118,6 +119,7 @@ export default defineConfig({
     },
   },
 });
+
 
 
 
