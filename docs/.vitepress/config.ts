@@ -47,6 +47,7 @@ export default defineConfig({
       { text: 'Магазин', link: 'https://store.milandur.ru' },
       { text: 'Правила', link: '/rules' },
       { text: 'Вики', link: '/wiki' },
+      { text: 'Карта', link: '/map' },
 
       // {
       //   text: 'Dropdown Menu',
@@ -119,6 +120,7 @@ export default defineConfig({
     },
   },
 });
+
 
 
 
