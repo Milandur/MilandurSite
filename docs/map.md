@@ -29,7 +29,7 @@ onMounted(() => {
 <div class="map-container">
   <iframe 
     class="map-frame"
-    src="http://squaremap.milandur.ru"
+    src="http://5.83.140.207:25933/"
     title="Карта сервера"
     allowfullscreen
   />
