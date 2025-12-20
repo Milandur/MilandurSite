@@ -44,7 +44,7 @@ export default defineConfig({
     nav: [
       { text: 'Главное', link: '/' },
       // { text: 'О сервере', link: '/about' },
-      { text: 'Магазин', link: 'https://store.milandur.ru' },
+      { text: 'Магазин', link: '/store' },
       { text: 'Правила', link: '/rules' },
       { text: 'Вики', link: '/wiki' },
       { text: 'Карта', link: '/map' },
