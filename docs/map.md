@@ -1,9 +1,6 @@
 ---
 layout: page
 ---
-
-# Карта сервера
-
 <ClientOnly>
   <iframe 
     src="http://5.83.140.207:25933/" 
