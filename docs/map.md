@@ -5,10 +5,9 @@ layout: page
   <iframe 
     src="https://map.milandur.ru/" 
     style="width: 100%; height: 90vh; border: none; display: block;"
-    allowfullscreen>
-  </iframe>
-
-
+    allowfullscreen
+  ></iframe>
+  
 ## Команды
 | Команда | Описание |
 | ---------------- | :---------------------------: | 
