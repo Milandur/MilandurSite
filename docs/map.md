@@ -8,3 +8,11 @@ layout: page
     allowfullscreen>
   </iframe>
 </ClientOnly>
+
+## Команды
+| Команда | Описание |
+| ---------------- | :---------------------------: | 
+| /map show | Показать себя  | 
+| /map hide | Скрыть себя |
+| /marker set <название> | Создать метку  | 
+| /marker remove <id> | Удалить метку |
