@@ -7,7 +7,7 @@ layout: page
     style="width: 100%; height: 90vh; border: none; display: block;"
     allowfullscreen>
   </iframe>
-</ClientOnly>
+
 
 ## Команды
 | Команда | Описание |
@@ -16,3 +16,4 @@ layout: page
 | /map hide | Скрыть себя |
 | /marker set <название> | Создать метку  | 
 | /marker remove <id> | Удалить метку |
+</ClientOnly>
