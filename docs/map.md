@@ -10,8 +10,8 @@ layout: page
 </ClientOnly>
 
 <div style="margin: 20px auto; max-width: 1200px; padding: 0 20px;">
-  <h2 style="margin-bottom: 15px;">Команды для онлайн карты</h2>
-  <p style="margin-bottom: 20px; line-height: 1.8; max-width: 800px;">
+  <h1 style="margin-bottom: 15px; font-size: 2.5em;">Команды для онлайн карты</h1>
+  <p style="margin-bottom: 20px; line-height: 1.8; max-width: 800px; font-size: 1.1em;">
     Онлайн карта позволяет игрокам видеть свое местоположение в реальном времени, 
     отмечать важные точки и координировать действия с другими участниками сервера.
   </p>
