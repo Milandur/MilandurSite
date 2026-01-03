@@ -7,11 +7,7 @@ layout: page
     style="width: 100%; height: 90vh; border: none; display: block;"
     allowfullscreen
   ></iframe>
-</ClientOnly>
 
-| Команда | Описание |
-| :-------------------------- | :----------------- | 
-| `/map show` | Показать себя | 
-| `/map hide` | Скрыть себя |
-| `/marker set <название>` | Создать метку | 
-| `/marker remove <id>` | Удалить метку |
+  <iframe src="https://discord.com/widget?id=997085108270010429&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+
+</ClientOnly>
