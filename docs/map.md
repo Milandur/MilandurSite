@@ -9,14 +9,14 @@ layout: page
   ></iframe>
 </ClientOnly>
 
-<div style="margin: 40px auto 20px auto; max-width: 1200px; padding: 0 20px;">
-  <h1 style="margin-bottom: 15px; font-size: 2.5em; font-weight: bold; text-align: center;">Команды для онлайн карты</h1>
-  <p style="margin-bottom: 20px; line-height: 1.8; max-width: 800px; font-size: 1.1em;">
+<div style="margin: 40px auto 20px auto; max-width: 1200px; padding: 0 20px; text-align: center;">
+  <h1 style="margin-bottom: 15px; font-size: 2.5em; font-weight: bold;">Команды для онлайн карты</h1>
+  <p style="margin: 0 auto 20px auto; line-height: 1.8; max-width: 800px; font-size: 1.1em;">
     Онлайн карта позволяет игрокам видеть свое местоположение в реальном времени, 
     отмечать важные точки и координировать действия с другими участниками сервера.
   </p>
 
-  <table style="width: 100%; max-width: 800px; border-collapse: collapse;">
+  <table style="width: 100%; max-width: 800px; border-collapse: collapse; margin: 0 auto;">
     <thead>
       <tr style="background-color: #2d2d2d;">
         <th style="padding: 12px; text-align: left; border: 1px solid #444; width: 40%;">Команда</th>
