@@ -1,5 +1,5 @@
 ---
-title: Правила проекта Milandur
+title: Правила
 sidebar: auto
 ---
 
