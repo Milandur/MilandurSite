@@ -4,34 +4,38 @@ layout: page
 <ClientOnly>
   <iframe 
     src="https://map.milandur.ru/" 
-    style="width: 100%; height: 75vh; border: none; display: block;"
+    style="width: 100%; height: 80vh; border: none; display: block;"
     allowfullscreen
   ></iframe>
-  <iframe src="https://discord.com/widget?id=997085108270010429&theme=dark" width="100%" height="500" allowtransparency="true" frameborder="10" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
 </ClientOnly>
-<table style="width: 100%; table-layout: fixed;">
+
+## Команды для онлайн карты
+
+Онлайн карта позволяет игрокам видеть свое местоположение в реальном времени, отмечать важные точки и координировать действия с другими участниками сервера.
+
+<table style="width: 100%; border-collapse: collapse; margin-top: 20px;">
   <thead>
-    <tr>
-      <th style="width: 50%;">Команда</th>
-      <th style="width: 50%;">Описание</th>
+    <tr style="background-color: #2d2d2d;">
+      <th style="padding: 12px; text-align: left; border: 1px solid #444;">Команда</th>
+      <th style="padding: 12px; text-align: left; border: 1px solid #444;">Описание</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>/map show</td>
-      <td>Показать себя</td>
+      <td style="padding: 10px; border: 1px solid #444;"><code>/map show</code></td>
+      <td style="padding: 10px; border: 1px solid #444;">Показать себя на карте</td>
+    </tr>
+    <tr style="background-color: #1a1a1a;">
+      <td style="padding: 10px; border: 1px solid #444;"><code>/map hide</code></td>
+      <td style="padding: 10px; border: 1px solid #444;">Скрыть себя на карте</td>
     </tr>
     <tr>
-      <td>/map hide</td>
-      <td>Скрыть себя</td>
+      <td style="padding: 10px; border: 1px solid #444;"><code>/marker set &lt;название&gt;</code></td>
+      <td style="padding: 10px; border: 1px solid #444;">Создать метку на карте</td>
     </tr>
-    <tr>
-      <td style="word-break: break-word;">/marker set &lt;название&gt;</td>
-      <td>Создать метку</td>
-    </tr>
-    <tr>
-      <td style="word-break: break-word;">/marker remove &lt;id&gt;</td>
-      <td>Удалить метку</td>
+    <tr style="background-color: #1a1a1a;">
+      <td style="padding: 10px; border: 1px solid #444;"><code>/marker remove &lt;id&gt;</code></td>
+      <td style="padding: 10px; border: 1px solid #444;">Удалить метку с карты</td>
     </tr>
   </tbody>
 </table>
