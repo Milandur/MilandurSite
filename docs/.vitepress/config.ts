@@ -114,6 +114,7 @@ export default defineConfig({
             { text: 'Настольные игры', link: '/wiki/boardgames' },
             { text: 'Команды', link: '/wiki/cmd' },
             { text: 'Изменение роста', link: '/wiki/changeheight' },
+            { text: 'Особенности Энда', link: '/wiki/end' },
             { text: 'Мелкие плагины', link: '/wiki/plugins' },
           ],
         },
@@ -121,6 +122,7 @@ export default defineConfig({
     },
   },
 });
+
 
 
 
