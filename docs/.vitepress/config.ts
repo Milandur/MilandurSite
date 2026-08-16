@@ -5,49 +5,49 @@ export default defineConfig({
   lang: 'ru-RU',
   cleanUrls: true,
   appearance: "force-dark",
-  title: 'Milandur',
+  title: ' ',
+  titleTemplate: ':title',
   description: 'Milandur - Minecraft Сервер',
-  head: [['link', { rel: 'icon', href: '/logo.png' }]],
+  head: [['link', { rel: 'icon', href: '/logo-mini.png' }]],
 
   themeConfig: {
-    search: {
-      provider: 'local',
-      options: {
-        locales: {
-          root: {
-            translations: {
-              button: {
-                buttonText: 'Поиск',
-                buttonAriaLabel: 'Поиск',
-              },
-              modal: {
-                displayDetails: 'Отобразить подробный список',
-                resetButtonTitle: 'Сбросить поиск',
-                backButtonTitle: 'Закрыть поиск',
-                noResultsText: 'Нет результатов по запросу',
-                footer: {
-                  selectText: 'выбрать',
-                  selectKeyAriaLabel: 'выбрать',
-                  navigateText: 'перейти',
-                  navigateUpKeyAriaLabel: 'стрелка вверх',
-                  navigateDownKeyAriaLabel: 'стрелка вниз',
-                  closeText: 'закрыть',
-                  closeKeyAriaLabel: 'esc',
-                },
-              },
-            },
-          },
-        },
-      },
-    },
+    // search: {
+    //   provider: 'local',
+    //   options: {
+    //     locales: {
+    //       root: {
+    //         translations: {
+    //           button: {
+    //             buttonText: 'Поиск',
+    //             buttonAriaLabel: 'Поиск',
+    //           },
+    //           modal: {
+    //             displayDetails: 'Отобразить подробный список',
+    //             resetButtonTitle: 'Сбросить поиск',
+    //             backButtonTitle: 'Закрыть поиск',
+    //             noResultsText: 'Нет результатов по запросу',
+    //             footer: {
+    //               selectText: 'выбрать',
+    //               selectKeyAriaLabel: 'выбрать',
+    //               navigateText: 'перейти',
+    //               navigateUpKeyAriaLabel: 'стрелка вверх',
+    //               navigateDownKeyAriaLabel: 'стрелка вниз',
+    //               closeText: 'закрыть',
+    //               closeKeyAriaLabel: 'esc',
+    //             },
+    //           },
+    //         },
+    //       },
+    //     },
+    //   },
+    // },
     logo: '/logo.png',
     nav: [
-      { text: 'Главное', link: '/' },
-      // { text: 'О сервере', link: '/about' },
-      { text: 'Магазин', link: '/store' },
-      { text: 'Правила', link: '/rules' },
-      { text: 'Вики', link: '/wiki' },
-      { text: 'Карта', link: '/map' },
+      { text: '<span class="nav-btn-primary">Главное</span>', link: '/' },
+      // { text: '<span class="nav-btn-primary">О сервере</span>', link: '/about/' },
+      { text: '<span class="nav-btn-primary">Правила</span>', link: '/rules/' },
+      { text: '<span class="nav-btn-primary">Вики</span>', link: '/wiki/' },
+      { text: '<span class="nav-btn-primary">Карта</span>', link: '/map' }
 
       // {
       //   text: 'Dropdown Menu',
@@ -60,7 +60,6 @@ export default defineConfig({
 
       // ...
     ],
-    socialLinks: [{ icon: 'discord', link: 'https://discord.gg/MaBUyCyQgP' }],
 
     outline: {
             label: "На этой странице",
@@ -74,57 +73,42 @@ export default defineConfig({
       '/about/': [
         {
           text: 'О сервере',
-          items: [{ text: 'О Milandur', link: '/about/' }],
+          items: [{ text: 'О Milandur', link: '/about/' }]
         },
       ],
       '/rules/': [
         {
           text: 'Правила',
           items: [
-            { text: 'О правилах', link: '/rules/' },
-            { text: 'Основные принципы', link: '/rules/general-principles' },
-            { text: 'Правила поведения', link: '/rules/behavior' },
-            { text: 'Игровые правила', link: '/rules/gameplay' },
-            { text: 'Нарушения и наказания', link: '/rules/punishments' },
-            { text: 'Для персонала', link: '/rules/staff' },
-            { text: 'Восстановление и апелляции', link: '/rules/appeals' },
-            { text: 'Судебная система', link: '/rules/court' },
-          ],
-        },
+            { text: 'Введение', link: '/rules/' },
+            { text: 'Основа', link: '/rules/one' },
+          ]
+        }
       ],
       '/wiki/': [
         {
           text: 'Руководство',
           items: [
             { text: 'Начало', link: '/wiki/' },
-            { text: 'Как играть?', link: '/wiki/play' },
-            { text: 'Модификации/Лаунчер', link: '/wiki/modifications' },
-          ],
+          ]
         },
         {
           text: 'Механики и команды',
           collapsed: true,
           items: [
-            { text: '❄️ Новогоднее обновление', link: '/wiki/new_year' },
             { text: 'Чат', link: '/wiki/chat' },
-            // { text: 'Банк', link: '/wiki/bank' },
+            { text: 'Банк', link: '/wiki/bank' },
             { text: 'Лупа', link: '/wiki/lupa' },
-            { text: 'Мяч', link: '/wiki/ball' },
             { text: 'Сито', link: '/wiki/sito' },
+            { text: 'Изменение роста', link: '/wiki/changeheight' },
+            { text: 'Двойные двери', link: '/wiki/doubledoors' },
             { text: 'Настольные игры', link: '/wiki/boardgames' },
             { text: 'Команды', link: '/wiki/cmd' },
-            { text: 'Изменение роста', link: '/wiki/changeheight' },
-            { text: 'Особенности Энда', link: '/wiki/end' },
             { text: 'Мелкие плагины', link: '/wiki/plugins' },
+            { text: 'Пожертвования', link: '/wiki/donations' },
           ],
         },
       ],
     },
   },
 });
-
-
-
-
-
-
