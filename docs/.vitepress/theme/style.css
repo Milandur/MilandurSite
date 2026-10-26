@@ -493,7 +493,7 @@ body {
 }
 
 .VPNavBarTitle:hover .logo {
-  transform: scale(1.75) translateX(-25%);
+  transform: scale(1.50);
 }
 
 /* Контейнер изображения */
