@@ -1,101 +1,144 @@
-.dark {
-    --vp-c-bg: #0b0b0c;
-    --vp-nav-bg-color: #0b0b0c;
+/* =====================================================================
+   Milandur — кастомные стили VitePress
+   ---------------------------------------------------------------
+   Структура:
+     1. Переменные (светлая/тёмная тема)
+     2. Глобальные настройки
+     3. Навигация (VPNavBar / VPNav)
+     4. Боковая панель (VPSidebar)
+     5. Основной контент (VPDoc)
+     6. Анимации
+   ==================================================================== */
 
-    --vp-sidebar-bg-color: #0b0b0c;
-
-    /*--vp-c-text-1: #ffffff;*/
-
-    --vp-c-brand-1: #356591
+/* ---------------------------------------------------------------------
+   1. Переменные тем
+   ------------------------------------------------------------------ */
+:root {
+  /* Базовые цвета VitePress переопределяются точечно — здесь задаём
+      акцентный цвет бренда и тонкие настройки, которые нужны во всех темах */
 }
 
-.VPNav,
-.VPNavBar,
-.VPNavBar .wrapper,
-.VPNavBar .container,
-.VPNavBar .content,
-.VPNavBar .content-body {
-    background-color: #0a0a0a !important;
-    background: transparent !important;
-    border: none !important;
-    box-shadow: none !important;
+html.dark {
+  /* Глубокий тёмный фон (совпадает с --vp-c-bg-1, но чуть темнее для навбара) */
+  --vp-c-bg: #0b0b0c;
+
+  /* Акцентный цвет бренда */
+  --vp-c-brand-1: #356591;
+
+  /* Цвет текста (оставляем нативную переменную, не хардкодим) */
+  /* --vp-c-text-1: #ffffff;  ← не задаём: используем стандартную переменную VP */
 }
 
-/* 2. Задаем сам островок с принудительным аппаратным блюром */
+/* ---------------------------------------------------------------------
+   2. Глобальные настройки
+   ------------------------------------------------------------------ */
+/* Плавная прокрутка только для якорных переходов (не отменяет
+   нативный scroll-behavior VitePress, который управляется JS) */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Пользовательский скроллбар (WebKit) */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--vp-c-divider);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--vp-c-brand-3);
+}
+
+/* ---------------------------------------------------------------------
+   3. Навигация (VPNavBar)
+   ------------------------------------------------------------------ */
+/* Сброс лишних границ/теней от стандартной темы — только там,
+   где это действительно необходимо (обертка навбара) */
 .VPNavBar .wrapper {
-    /* Принудительное включение GPU-ускорения для матового стекла */
-    transform: translateZ(0);
-    -webkit-transform: translateZ(0);
+  /* Аппаратное ускорение блюра */
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
 
-    /* Размытие */
-    backdrop-filter: blur(70px) !important;
-    -webkit-backdrop-filter: blur(70px) !important;
+  /* Матовое стекло */
+  backdrop-filter: blur(70px);
+  -webkit-backdrop-filter: blur(70px);
 
-    /* Полупрозрачный фон для светлой темы */
-    background-color: #121214 !important;
+  /* Фон и границы */
+  background-color: #121214;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
 
-    /* Размеры и форма */
-    max-width: 1200px !important;
-    width: 92% !important;
-    margin: 9px auto 0 auto !important;
-    border-radius: 25px !important;
-    border: 1px solid rgba(255, 255, 255, 0.3) !important;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12) !important;
+  /* Адаптивная ширина */
+  max-width: 1200px;
+  width: 92%;
+  margin: 9px auto 0 auto;
+  border-radius: 25px;
 
-    transition: all 0.3s ease !important;
+  transition: all 0.3s ease;
 }
 
-/* 3. Полупрозрачный фон для темной темы */
 html.dark .VPNavBar .wrapper {
-    background-color: #121214 !important;
-    border: 1px solid rgba(255, 255, 255, 0.1) !important;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4) !important;
+  background-color: #121214;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
 }
 
-/* 4. Восстановление стилей кнопок */
+/* Кнопка навигации (используется в config.ts через nav-btn-primary) */
 .nav-btn-primary {
-    background-color: transparent;
-    color: #9f9f9f !important;
-    border: 2px solid #2b2b2b;
-    padding: 8px 22px;
-    border-radius: 15px;
-    font-weight: 600;
-    font-size: 15px;
-    transition: all 0.25s ease;
-    display: inline-block;
-    vertical-align: middle;
-    line-height: 1;
+  display: inline-block;
+  vertical-align: middle;
+  line-height: 1;
+  background-color: transparent;
+  color: #9f9f9f;
+  border: 2px solid #2b2b2b;
+  padding: 8px 22px;
+  border-radius: 15px;
+  font-weight: 600;
+  font-size: 15px;
+  font-family: inherit;
+  transition: all 0.25s ease;
 }
 
 .nav-btn-primary:hover {
-    background-color: #454545 !important;
-    color: #aaaaaa !important;
-    transform: translateY(-1.5px);
-    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.15);
+  background-color: #454545;
+  color: #aaaaaa;
+  transform: translateY(-1.5px);
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.15);
 }
 
+/* Активная кнопка в навигации */
 .VPNavBarMenuLink.active .nav-btn-primary {
-    background-color: #ffffff !important;
-    color: #000000 !important;
-    border-color: #111111 !important;
-    transform: none;
+  background-color: #ffffff;
+  color: #000000;
+  border-color: #111111;
+  transform: none;
 }
 
-.VPSidebarItem.is-active > .item > .link > .text {
-    /* Цвет активного пункта меню */
-    color: #ffffff !important;
+/* Логотип в заголовке навбара */
+.VPNavBarTitle .logo {
+  transition: transform 0.2s ease;
 }
 
-.VPSidebarItem:not(.is-active) .link:hover .text {
-    color: #838383 !important;
+.VPNavBarTitle:hover .logo {
+  transform: scale(1.5);
 }
 
+/* ---------------------------------------------------------------------
+   4. Боковая панель (VPSidebar)
+   ------------------------------------------------------------------ */
 .VPSidebar {
   padding-top: 1.5rem;
   border-right: 1px solid var(--vp-c-divider);
 }
 
-.VPSidebarItem.level-0 > .item .text {
+.VPSidebarItem.level-0 > .item > .link > .text {
   font-size: 0.75rem;
   font-weight: 700;
   text-transform: uppercase;
@@ -109,32 +152,182 @@ html.dark .VPNavBar .wrapper {
   color: var(--vp-c-brand-1);
 }
 
+/* Активный элемент */
 .VPSidebarItem.is-active > .item .link {
-  color: var(--vp-c-brand-1) !important;
+  color: var(--vp-c-brand-1);
   font-weight: 600;
+  position: relative;
 }
 
-/* ── Контент ─────────────────────────────────────── */
+/* Точка-индикатор у активного пункта */
+.VPSidebarItem.is-active > .item .link::before {
+  content: '';
+  position: absolute;
+  left: -10px;
+  top: 50%;
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: var(--vp-c-brand-1);
+  transform: translateY(-50%);
+  box-shadow: 0 0 12px var(--vp-c-brand-1);
+  animation: pulseDot 1.8s infinite ease-in-out;
+}
+
+/* Элемент меню */
+.VPSidebarItem .item {
+  position: relative;
+  transition:
+    background-color 0.25s ease,
+    transform 0.2s ease,
+    padding-left 0.2s ease;
+  border-radius: 8px;
+}
+
+.VPSidebarItem .item .link {
+  transition:
+    color 0.2s ease,
+    transform 0.2s ease,
+    padding-left 0.2s ease;
+}
+
+.VPSidebarItem .item:hover {
+  transform: translateX(4px);
+}
+
+/* Цвета ссылок в боковой панели (светлая тема) */
+.VPSidebarItem:not(.is-active) .link:hover .text {
+  color: #838383;
+}
+
+/* ---------------------------------------------------------------------
+   5. Основной контент (VPDoc)
+   ------------------------------------------------------------------ */
+/* Ширина контента */
 .VPDoc .container {
   max-width: 1200px;
 }
 
+/* Отступ слева для контента */
 .VPDoc .content-container {
-  max-width: 100% !important;
-  padding-left: 45px !important;
+  max-width: 100%;
+  padding-left: 45px;
 }
 
-
+/* Заголовки */
 .vp-doc h1 {
   border-bottom: none;
   padding-bottom: 0;
+}
+
+.vp-doc h1::after {
+  display: none;
+  content: none;
 }
 
 .vp-doc strong {
   font-weight: 800;
 }
 
-/* ── Inline code — как в GitBook ────────────────── */
+/* ----------------------------------------------------------------------
+   Типографика и текст
+   ------------------------------------------------------------------ */
+.vp-doc a {
+  color: var(--vp-c-brand-1);
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.2s;
+  position: relative;
+}
+
+.vp-doc a:hover {
+  color: var(--vp-c-brand-2);
+  text-decoration: underline;
+}
+
+/* Подчёркивание при hover (только для обычных ссылок, без внешних) */
+.vp-doc a:not([target="_blank"]):not(.card-item)::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0;
+  height: 1px;
+  background: currentColor;
+  transition: width 0.25s ease;
+}
+
+.vp-doc a:not([target="_blank"]):not(.card-item):hover::after {
+  width: 100%;
+}
+
+.vp-doc del {
+  opacity: 0.5;
+  text-decoration-color: var(--vp-c-text-3);
+}
+
+/* ----------------------------------------------------------------------
+   Ссылки-карточки
+   ------------------------------------------------------------------ */
+.cards-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 1rem;
+}
+
+.card-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 20px;
+  border: 1px solid var(--vp-c-inline-border);
+  border-radius: 10px;
+  color: var(--vp-c-text-1);
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  background-color: var(--vp-c-bg-soft);
+}
+
+.card-item::after {
+  content: '->';
+  font-size: 1.2rem;
+  color: var(--vp-c-text-3);
+}
+
+.card-item:hover {
+  border-color: var(--vp-c-brand-1);
+  background-color: var(--vp-c-brand-soft);
+  transform: none;
+}
+
+/* ----------------------------------------------------------------------
+   Изображения
+   ------------------------------------------------------------------ */
+.vp-doc figure {
+  text-align: center;
+  margin: 32px 0;
+}
+
+.vp-doc figure img {
+  display: block;
+  max-width: 100%;
+  margin: 0 auto;
+  border-radius: 12px;
+}
+
+.vp-doc figcaption {
+  margin-top: 5px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--vp-c-text-2);
+  opacity: 0.75;
+}
+
+/* ----------------------------------------------------------------------
+   Inline-код
+   ------------------------------------------------------------------ */
 .vp-doc :not(pre) > code {
   background-color: var(--vp-c-bg-mute);
   border: 1px solid var(--vp-c-inline-border);
@@ -145,13 +338,15 @@ html.dark .VPNavBar .wrapper {
   font-family: var(--vp-font-family-mono);
 }
 
-/* ── Code blocks ───────────────────────────────── */
+/* Блоки кода */
 .vp-doc div[class*='language-'] {
   border-radius: 10px;
   border: 1px solid var(--vp-c-divider);
 }
 
-/* ── Info/Warning/Tip callouts (circle-info стиль) */
+/* ----------------------------------------------------------------------
+   Вызовы (callouts)
+   ------------------------------------------------------------------ */
 .vp-doc .custom-block.info {
   background-color: var(--vp-c-bg-soft);
   border-color: var(--vp-c-bg-mute);
@@ -160,25 +355,22 @@ html.dark .VPNavBar .wrapper {
 .vp-doc .custom-block.info .custom-block-title {
   color: var(--vp-c-brand-1);
 }
-.vp-doc .custom-block.info .custom-block-title {
+
+/* Скрываем заголовок у info/warning/danger для компактного вида */
+.vp-doc .custom-block.info .custom-block-title,
+.vp-doc .custom-block.warning .custom-block-title,
+.vp-doc .custom-block.danger .custom-block-title {
   display: none;
 }
 
-.vp-doc .custom-block.info p {
-  margin-top: 0px;
+.vp-doc .custom-block.info p,
+.vp-doc .custom-block.warning p {
+  margin-top: 0;
 }
 
 .vp-doc .custom-block.warning {
-  background-color: rgba(251, 191, 36, 0.1);
+  background-color: rgba(245, 158, 11, 0.1);
   border-color: #f59e0b;
-}
-
-.vp-doc .custom-block.warning .custom-block-title {
-  display: none;
-}
-
-.vp-doc .custom-block.warning p {
-  margin-top: 0px;
 }
 
 .vp-doc .custom-block.danger {
@@ -186,7 +378,56 @@ html.dark .VPNavBar .wrapper {
   border-color: #ef4444;
 }
 
-/* ── Нумерованные шаги (как на странице "Как зайти") */
+/* ----------------------------------------------------------------------
+   Таблицы
+   ------------------------------------------------------------------ */
+.vp-doc table {
+  display: table;
+  width: 100%;
+  margin: 24px 0;
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background-color: rgba(20, 20, 20, 0.6);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+
+.vp-doc th {
+  background-color: rgba(255, 255, 255, 0.05);
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 600;
+  padding: 16px 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: none;
+}
+
+.vp-doc td {
+  padding: 14px 20px;
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.85);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  border-top: none;
+}
+
+.vp-doc tr:last-child td {
+  border-bottom: none;
+}
+
+.vp-doc tr {
+  background-color: transparent;
+  transition: background-color 0.2s ease;
+}
+
+.vp-doc tr:hover td {
+  background-color: rgba(255, 255, 255, 0.03);
+}
+
+/* ----------------------------------------------------------------------
+   Нумерованные списки
+   ------------------------------------------------------------------ */
 .vp-doc ol > li {
   margin-bottom: 0.75rem;
 }
@@ -197,80 +438,9 @@ html.dark .VPNavBar .wrapper {
   font-weight: 600;
 }
 
-/* ── Ссылки ──────────────────────────────────────── */
-.vp-doc a {
-  color: var(--vp-c-brand-1);
-  font-weight: 500;
-  text-decoration: none;
-  transition: color 0.2s;
-}
-
-.vp-doc a:hover {
-  color: var(--vp-c-brand-2);
-  text-decoration: underline;
-}
-
-/* ── Таблицы ─────────────────────────────────────── */
-
-/* 1. Контейнер таблицы */
-.vp-doc table {
-    display: table !important;
-    width: 100% !important;
-    margin: 24px 0 !important;
-    border-collapse: separate !important;
-    border-spacing: 0 !important;
-
-    border-radius: 16px !important;
-    border: 1px solid rgba(255, 255, 255, 0.1) !important;
-    background-color: rgba(20, 20, 20, 0.6) !important;
-
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2) !important;
-    overflow: hidden !important;
-}
-
-/* 2. Шапка таблицы (УБРАЛИ text-align: left !important) */
-.vp-doc th {
-    background-color: rgba(255, 255, 255, 0.05) !important;
-    color: #ffffff !important;
-    font-family: "Unbounded", sans-serif;
-    font-size: 15px !important;
-    font-weight: 600 !important;
-    padding: 16px 20px !important;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
-    border-top: none !important;
-}
-
-/* 3. Ячейки таблицы (УБРАЛИ принудительный text-align) */
-.vp-doc td {
-    padding: 14px 20px !important;
-    font-size: 15px !important;
-    color: rgba(255, 255, 255, 0.85) !important;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
-    border-top: none !important;
-}
-
-/* Убираем нижнюю рамку у последнего ряда */
-.vp-doc tr:last-child td {
-    border-bottom: none !important;
-}
-
-/* 4. Эффект наведения на строчку */
-.vp-doc tr {
-    background-color: transparent !important;
-    transition: background-color 0.2s ease;
-}
-
-.vp-doc tr:hover td {
-    background-color: rgba(255, 255, 255, 0.03) !important;
-}
-
-/* ── Зачёркнутый текст (~~текст~~) как в Магазинах */
-.vp-doc del {
-  opacity: 0.5;
-  text-decoration-color: var(--vp-c-text-3);
-}
-
-/* ── Prev/Next ───────────────────────────────────── */
+/* ----------------------------------------------------------------------
+   Prev / Next
+   ------------------------------------------------------------------ */
 .VPDocFooter .pager-link {
   border: 1px solid var(--vp-c-divider);
   border-radius: 10px;
@@ -282,23 +452,9 @@ html.dark .VPNavBar .wrapper {
   background-color: var(--vp-c-brand-soft);
 }
 
-/* ── Scrollbar (WebKit) ─────────────────────────── */
-::-webkit-scrollbar {
-  width: 6px;
-}
-::-webkit-scrollbar-track {
-  background: transparent;
-}
-::-webkit-scrollbar-thumb {
-  background: var(--vp-c-divider);
-  border-radius: 3px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: var(--vp-c-brand-3);
-}
-
-/* ── Animations ─────────────────────────────────── */
-
+/* ----------------------------------------------------------------------
+   6. Анимации
+   ------------------------------------------------------------------ */
 @keyframes fadeUp {
   from {
     opacity: 0;
@@ -307,15 +463,6 @@ html.dark .VPNavBar .wrapper {
   to {
     opacity: 1;
     transform: translateY(0);
-  }
-}
-
-@keyframes lineGrow {
-  from {
-    width: 0;
-  }
-  to {
-    width: 120px;
   }
 }
 
@@ -330,7 +477,7 @@ html.dark .VPNavBar .wrapper {
   }
 }
 
-/* Плавные переходы */
+/* Общие плавные переходы для ключевых компонентов */
 .VPNav,
 .VPSidebar,
 .VPDoc,
@@ -353,204 +500,16 @@ html.dark .VPNavBar .wrapper {
   animation: fadeUp 0.45s ease;
 }
 
-/* Заголовки */
+/* Плавное появление заголовков */
 .vp-doc h1,
 .vp-doc h2,
 .vp-doc h3 {
   animation: fadeUp 0.5s ease both;
 }
 
-.vp-doc h1::after {
-  display: none;
-  content: none;
-}
-
-/* Sidebar hover */
-.VPSidebarItem .item .link {
-  transition:
-    color 0.2s ease,
-    transform 0.2s ease,
-    padding-left 0.2s ease;
-}
-
-.VPSidebarItem .item:hover {
-  transform: translateX(4px);
-}
-
-/* Active sidebar dot */
-.VPSidebarItem.is-active > .item .link {
-  position: relative;
-}
-
-.VPSidebarItem.is-active > .item .link::before {
-  content: '';
-  position: absolute;
-  left: -10px;
-  top: 50%;
-  width: 6px;
-  height: 6px;
-  border-radius: 999px;
-  background: var(--vp-c-brand-1);
-  transform: translateY(-50%);
-  box-shadow: 0 0 12px var(--vp-c-brand-1);
-  animation: pulseDot 1.8s infinite ease-in-out;
-}
-
-/* Links underline animation */
-.vp-doc a {
-  position: relative;
-}
-
-/* Анимация только для обычных ссылок */
-.vp-doc a:not([target="_blank"]):not(.card-item)::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: -2px;
-  width: 0;
-  height: 1px;
-  background: currentColor;
-  transition: width 0.25s ease;
-}
-
-.vp-doc a:not([target="_blank"]):not(.card-item):hover::after {
-  width: 100%;
-}
-
-/* Blocks hover */
+/* Подсветка блока при наведении */
 .vp-doc .custom-block:hover,
 .vp-doc div[class*='language-']:hover,
 .VPDocFooter .pager-link:hover {
   transform: translateY(-2px);
-}
-
-.is-scrolled .VPNav {
-  background-color: var(--vp-nav-bg-color);
-}
-
-html,
-body {
-  scroll-behavior: smooth;
-}
-
-
-.VPSidebarItem .item {
-  position: relative;
-  transition:
-    background-color 0.25s ease,
-    transform 0.2s ease,
-    padding-left 0.2s ease;
-  border-radius: 8px;
-}
-
-
-.inline-badge {
-  display: inline;
-  background-color: var(--vp-c-bg-mute);
-  border: 1px solid var(--vp-c-inline-border);
-  border-radius: 6px;
-  padding: 2px 6px;
-  font-size: 14px;
-  transition: all 0.2s ease;
-  font-family: 'IBM Plex Mono', 'JetBrains Mono', monospace;
-}
-
-
-.inline-badge:hover {
-  border-color: var(--vp-c-brand-1);
-}
-
-/* Цветовые варианты */
-.badge-purple {
-  color: var(--vp-c-brand-1);
-}
-
-.badge-green {
-  color: #34d399;
-}
-
-.badge-red {
-  color: #fb2c36;
-}
-
-.badge-yellow {
-  color: #c9bb77;
-}
-
-.hover-text-test {
-  display: block;
-  color: #b6b4bb;
-  line-height: 22px;
-  margin: 0px;
-  overflow-wrap: anywhere;
-  letter-spacing: 0.1px;
-  font-weight: 400;
-  font-size: 16px;
-}
-
-.VPNavBarTitle .logo {
-  transition: transform 0.2s ease;
-}
-
-.VPNavBarTitle:hover .logo {
-  transform: scale(1.50);
-}
-
-/* Контейнер изображения */
-.vp-doc figure {
-  text-align: center;
-  margin: 32px 0;
-}
-
-/* Картинка */
-.vp-doc figure img {
-  max-width: 100%;
-  border-radius: 12px;
-}
-
-/* Подпись */
-.vp-doc figcaption {
-  margin-top: 5px;
-  font-size: 12px;
-  font-weight: 600;
-  color: var(--vp-c-text-2); /* стандартный приглушённый цвет VitePress */
-  opacity: 0.75;
-}
-
-.cards-list {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  margin-top: 1rem;
-}
-
-.card-item {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 14px 20px;
-  border: 1px solid var(--vp-c-inline-border);
-  border-radius: 10px;
-  color: var(--vp-c-text-1) !important;
-  text-decoration: none !important;
-  font-weight: 500;
-  transition: all 0.2s ease;
-  background-color: var(--vp-c-bg-soft);
-}
-
-.card-item::after {
-  content: '->';
-  font-size: 1.2rem;
-  color: var(--vp-c-text-3);
-}
-
-.card-item:hover {
-  border-color: var(--vp-c-brand-1);
-  background-color: var(--vp-c-brand-soft);
-  transform: none !important;
-}
-
-.vp-doc figure img {
-  display: block;
-  margin: 0 auto;
 }

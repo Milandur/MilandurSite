@@ -1,20 +1,32 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
+  <base target="_top">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <base target="_top">
-  <title>Уникальный приватный сервер друзей</title>
-  
+  <meta name="description" content="Уникальный приватный сервер друзей Milandur — Minecraft Java сервер для своих. Присоединяйся, создавай, выживай и веселись с друзьями!">
+  <meta name="theme-color" content="#0b0b0c">
+  <title>Уникальный приватный сервер друзей — Milandur</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,400;0,500;1,500&family=Unbounded:wght@400;600;700&display=swap" rel="stylesheet">
 
   <style>
-    * {
+    /* ============================================================
+       Сброс и базовые стили
+       ============================================================ */
+    *, *::before, *::after {
       box-sizing: border-box;
+    }
+
+    * {
       margin: 0;
       padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
@@ -23,6 +35,7 @@
       font-family: "Ubuntu", sans-serif;
       min-height: 100vh;
       overflow-x: hidden;
+      line-height: 1.5;
     }
 
     a, button {
@@ -30,6 +43,12 @@
       color: inherit;
       cursor: pointer;
       transition: all 0.2s ease-in-out;
+      user-select: none;
+    }
+
+    :focus-visible {
+      outline: 2px solid rgba(64, 134, 226, 0.6);
+      outline-offset: 2px;
     }
 
     img {
@@ -38,14 +57,28 @@
       display: block;
     }
 
+    button {
+      font-family: inherit;
+    }
+
     .container {
       max-width: 1200px;
       margin: 0 auto;
       padding: 0 20px;
     }
 
+    /* Учитываем предпочтения по снижению анимаций */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+
     /* ============================================================
-       АНИМАЦИЯ ПОЯВЛЕНИЯ СТРАНИЦЫ (FADE IN + SLIDE UP)
+       Анимации появления (fade up)
        ============================================================ */
     @keyframes fadeUp {
       from {
@@ -58,33 +91,19 @@
       }
     }
 
-    /* Вешаем анимацию на блоки с поэтапной задержкой */
     .animate-hero {
       animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     }
 
-    .articles-section {
-      opacity: 0;
-      animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
-    }
-
-    .features-section {
-      opacity: 0;
-      animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.4s forwards;
-    }
-
-    .faq-section {
-      opacity: 0;
-      animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.6s forwards;
-    }
-
-    /* 2. Шапка / Главный экран (Hero Section) */
+    /* ============================================================
+       Hero секция (главный экран)
+       ============================================================ */
     .hero {
-      padding: 80px 0;
       display: grid;
       grid-template-columns: 1.2fr 1fr;
       gap: 40px;
       align-items: center;
+      padding: 80px 0;
     }
 
     .hero-content {
@@ -120,9 +139,9 @@
     .hero-note img {
       width: 24px;
       height: 24px;
+      flex-shrink: 0;
     }
 
-    /* Контейнер картинки со свечением */
     .hero-image-wrap {
       position: relative;
       display: flex;
@@ -144,12 +163,11 @@
     .hero-image {
       position: relative;
       z-index: 2;
-      max-width: 150%;
-      filter: drop-shadow(0 10px 20px rgba(0,0,0,0.5));
+      max-width: 100%;
+      filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.5));
       transition: transform 0.5s ease;
     }
 
-    /* Небольшой эффект при наведении на обложку */
     .hero-image-wrap:hover .hero-image {
       transform: translateY(-5px) scale(1.02);
     }
@@ -214,7 +232,9 @@
       color: #000000;
     }
 
-    /* 3. Секция Полезных статей */
+    /* ============================================================
+       Секция полезных статей
+       ============================================================ */
     .articles-section {
       margin-top: 60px;
       background: #0d0d0d;
@@ -236,28 +256,22 @@
       gap: 24px;
     }
 
-    /* Контейнер для картинки в карточке статьи */
     .article-img-wrap {
-        width: 80px;           /* Ширина области под иконку/картинку */
-        height: 80px;          /* Высота области */
-        margin-bottom: 16px;   /* Отступ снизу до заголовка h3 */
-        display: flex;
-        align-items: center;
-        justify-content: center;
+      width: 80px;
+      height: 80px;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
-    /* Сама картинка */
     .article-img {
-        max-width: 100%;
-        max-height: 100%;
-        object-fit: contain;   /* Картинка пропорционально впишется в блок */
-        filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.4)); /* Легкая тень */
-        transition: transform 0.3s ease;
-    }
-
-    /* Эффект анимации картинки при наведении на карточку */
-    .article-card:hover .article-img {
-        transform: scale(1.1); /* Картинка слегка увеличится */
+      width: 100%;
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.4));
+      transition: transform 0.3s ease;
     }
 
     .article-card {
@@ -277,6 +291,10 @@
       border-color: rgba(64, 134, 226, 0.3);
     }
 
+    .article-card:hover .article-img {
+      transform: scale(1.12) rotate(8deg);
+    }
+
     .article-card h3 {
       font-family: "Unbounded", sans-serif;
       font-size: 24px;
@@ -284,7 +302,9 @@
       margin-bottom: 24px;
     }
 
-    /* 4. Секция Особенностей */
+    /* ============================================================
+       Секция особенностей
+       ============================================================ */
     .features-section {
       margin: 80px 0;
       background: #0d0d0d;
@@ -352,7 +372,9 @@
     .card-possibilities { grid-column: span 8; }
     .card-events { grid-column: span 4; }
 
-    /* 5. Секция FAQ (Вопросы и ответы) */
+    /* ============================================================
+       FAQ секция
+       ============================================================ */
     .faq-section {
       margin: 80px 0;
       background: #0d0d0d;
@@ -407,7 +429,7 @@
     summary::after {
       content: "+";
       font-size: 26px;
-      color: rgba(64, 134, 226, 0.8);
+      color: rgba(64, 134, 231, 0.8);
       transition: transform 0.2s ease;
     }
 
@@ -425,20 +447,29 @@
       padding-top: 16px;
     }
 
-    /* Адаптивность */
+    /* ============================================================
+       Адаптивность
+       ============================================================ */
     @media (max-width: 992px) {
       .hero {
         grid-template-columns: 1fr;
         text-align: center;
         padding: 40px 0;
       }
+
       .hero-image-wrap {
         order: -1;
       }
-      .hero-note, .cta-group {
+
+      .hero-note,
+      .cta-group {
         justify-content: center;
       }
-      .card-community, .card-vanilla, .card-possibilities, .card-events {
+
+      .card-community,
+      .card-vanilla,
+      .card-possibilities,
+      .card-events {
         grid-column: span 12;
       }
     }
@@ -447,69 +478,66 @@
 <body>
 
   <main class="container">
-    
+
     <section class="hero animate-hero">
       <div class="hero-content">
         <div class="hero-note">
           <img src="../layers0.svg" alt="Иконка слоев">
-          <span>Не зевай-изучай!</span>
+          <span>Не зевай — изучай!</span>
         </div>
         <h1 class="hero-title">Уникальный<br>Приватный сервер<br>Друзей</h1>
         <p class="hero-subtitle">Твори, создавай, выживай, веселись, находи новых друзей.</p>
-        
+
         <div class="cta-group">
-          <a href="/discord" class="btn btn-primary">
+          <a href="/discord" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
             <span>Присоединиться</span>
-            <img src="../group0.svg" alt="Иконка" style="width: 20px; height: 20px;">
+            <img src="../group0.svg" alt="" aria-hidden="true" style="width: 20px; height: 20px;">
           </a>
-          <button class="btn btn-secondary" onclick="copyServerIP(this, 'mc.milandur.com')">
+          <button class="btn btn-secondary" type="button" aria-label="Скопировать IP адрес сервера" onclick="copyServerIP(this, 'play.server.ru')">
             <span>Скопировать IP</span>
           </button>
         </div>
       </div>
-      
+
       <div class="hero-image-wrap">
         <img class="hero-image" src="../6f86a0a5c50d171d.png" alt="Промо изображение сервера">
       </div>
     </section>
 
-      <section class="articles-section">
-          <h2 class="articles-title">Полезные статьи</h2>
-          <div class="articles-grid">
+    <section class="articles-section">
+      <h2 class="articles-title">Полезные статьи</h2>
+      <div class="articles-grid">
 
-              <!-- Карточка 1 -->
-              <div class="article-card">
-                  <div class="article-img-wrap">
-                      <img src="../lupa-mini-index.png" alt="Иконка Лупы" class="article-img">
-                  </div>
-                  <h3>Лупа</h3>
-                  <a href="/wiki/lupa" class="btn-card">Перейти в статью</a>
-              </div>
-
-              <!-- Карточка 2 -->
-              <div class="article-card">
-                  <div class="article-img-wrap">
-                      <img src="../changeheight-mini-index.png" alt="Иконка Изменение роста" class="article-img">
-                  </div>
-                  <h3>Изменение роста</h3>
-                  <a href="/wiki/changeheight" class="btn-card">Перейти в статью</a>
-              </div>
-
-              <!-- Карточка 3 -->
-              <div class="article-card">
-                  <div class="article-img-wrap">
-                      <img src="../rules-mini-index.png" alt="Иконка Правила" class="article-img">
-                  </div>
-                  <h3>Правила</h3>
-                  <a href="/rules" class="btn-card">Перейти в статью</a>
-              </div>
-
+        <article class="article-card" tabindex="0" role="article">
+          <div class="article-img-wrap">
+            <img src="../lupa-mini-index.png" alt="Иконка Лупы" class="article-img">
           </div>
-      </section>
+          <h3>Лупа</h3>
+          <a href="/wiki/lupa" class="btn-card">Перейти в статью</a>
+        </article>
+
+        <article class="article-card" tabindex="0" role="article">
+          <div class="article-img-wrap">
+            <img src="../changeheight-mini-index.png" alt="Иконка Изменения роста" class="article-img">
+          </div>
+          <h3>Изменение роста</h3>
+          <a href="/wiki/changeheight" class="btn-card">Перейти в статью</a>
+        </article>
+
+        <article class="article-card" tabindex="0" role="article">
+          <div class="article-img-wrap">
+            <img src="../rules-mini-index.png" alt="Иконка Правил" class="article-img">
+          </div>
+          <h3>Правила</h3>
+          <a href="/rules" class="btn-card">Перейти в статью</a>
+        </article>
+
+      </div>
+    </section>
 
     <section class="features-section">
       <div class="features-grid">
-        
+
         <div class="feature-card card-community">
           <h3>Комьюнити</h3>
           <p>Мы прилагаем все усилия, чтобы поддерживать наше сообщество комфортным и дружным!</p>
@@ -539,7 +567,7 @@
     <section class="faq-section">
       <h2 class="faq-title">Часто задаваемые вопросы</h2>
       <div class="faq-container">
-        
+
         <details>
           <summary>Как попасть на ваш сервер?</summary>
           <div class="faq-content">
@@ -567,22 +595,26 @@
   </main>
 
   <script>
+    /**
+     * Копирует IP сервера в буфер обмена и визуализирует успех.
+     * @param {HTMLButtonElement} buttonElement - кнопка, по которой кликнули
+     * @param {string} ipAddress - IP адрес для копирования
+     */
     function copyServerIP(buttonElement, ipAddress) {
       navigator.clipboard.writeText(ipAddress).then(() => {
         const textSpan = buttonElement.querySelector('span');
         const originalText = textSpan.innerText;
-        
+
         textSpan.innerText = 'Скопировано!';
         buttonElement.classList.add('copied');
-        buttonElement.style.pointerEvents = 'none';
+        buttonElement.disabled = true;
 
         setTimeout(() => {
           textSpan.innerText = originalText;
           buttonElement.classList.remove('copied');
-          buttonElement.style.pointerEvents = 'auto';
+          buttonElement.disabled = false;
         }, 2500);
-        
-      }).catch(err => {
+      }).catch((err) => {
         console.error('Не удалось скопировать IP: ', err);
       });
     }

@@ -1,6 +1,7 @@
 ---
 layout: false
 title: Discord
+description: Переброс на Discord сервер
 head:
   - - meta
     - http-equiv: refresh
@@ -9,7 +10,7 @@ head:
 
 <ClientOnly>
   <iframe 
-    src="https://mc.milandur.com/website-page/loading" 
+    src="http://mc.milandur.com/website-page/loading" 
     style="width: 100%; height: 90vh; border: none; display: block;"
     allowfullscreen
   ></iframe>
